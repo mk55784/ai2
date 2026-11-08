@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Measurement index</h1>
-
+<div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
@@ -14,6 +14,7 @@
                 <th>Windspeed</th>
                 <th>Humidity</th>
                 <th>Pressure</th>
+                <th>City</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -26,6 +27,7 @@
                 <td>{{ measurement.windspeed }}</td>
                 <td>{{ measurement.humidity }}</td>
                 <td>{{ measurement.pressure }}</td>
+                <td>{{ measurement.location.city }}</td>
                 <td>
                     <a href="{{ path('app_measurement_show', {'id': measurement.id}) }}">show</a>
                     <a href="{{ path('app_measurement_edit', {'id': measurement.id}) }}">edit</a>
@@ -38,6 +40,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     <a href="{{ path('app_measurement_new') }}">Create new</a>
 {% endblock %}
