@@ -22,16 +22,17 @@ App\Entity\Location:
 App\Entity\Measurement:
     properties:
         date:
-            - NotBlank:
-                  groups: ['create', 'edit']
-            - Type:
-                  type: \DateInterface
-                  groups: ['create', 'edit']
         celsius:
             - NotBlank:
-                  groups: ['create','edit']
+                  groups: ['create', 'edit']
             - Type:
                   type: numeric
+                  message: 'Temperatura musi byc wartoscia liczbowa.'
+                  groups: ['create', 'edit']
+            - Range:
+                  min: -100
+                  max: 150
+                  notInRangeMessage: 'Temperatura musi miescic się w zakresie od {{ min }} do {{ max }} C.'
                   groups: ['create', 'edit']
         location:
             - NotNull:
